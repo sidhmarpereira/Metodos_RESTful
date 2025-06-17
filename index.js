@@ -2,14 +2,16 @@ const express = require ("express");
 
 const server = express();
 
+server.use(express.json());
+let customers =[
 
-server.get("/hello", (req, res) =>{
-    const name =req.query.name;
-    return  res.json({
-    title:  "Hello word",
-    message: 'Olá  {nome} tudo bem!?'
+{id: 1, name: "Dev Samurai", site: "Http://devsamurai.com.br"},
+{id: 2, name: "Google", site: "http://google"},
+{id: 3, name: "UOL", site:"http://uol.com.br"}
+] ;
 
-   });
+server.get("/customers",(req,res)=>{
+return res.json(customers);
 
 });
 
